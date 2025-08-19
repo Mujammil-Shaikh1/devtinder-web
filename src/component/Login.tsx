@@ -3,6 +3,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router";
+import { BASE_URL } from "../utils/constants";
+import { toast } from "react-toastify";
+import type { AppError } from "../model/common";
 
 interface login {
   email: string;
@@ -28,13 +31,24 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const result = await axios.post("http://localhost:4000/login", login, {
+      const result = await axios.post(BASE_URL + "/login", login, {
         withCredentials: true,
       });
       dispatch(addUser(result.data));
       navigate("/profile");
+      toast.success("Logged in successfully", {
+        position: "top-right",
+        autoClose: 3000,
+        theme: "dark",
+      });
     } catch (err) {
-      console.log(err);
+      const error = err as AppError;
+      console.log("Errro", error);
+      toast.error(error?.response?.data, {
+        position: "top-right",
+        autoClose: 3000,
+        theme: "dark",
+      });
     }
   };
 
