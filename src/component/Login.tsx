@@ -35,7 +35,7 @@ const Login = () => {
         withCredentials: true,
       });
       dispatch(addUser(result.data));
-      navigate("/profile");
+      navigate("/");
       toast.success("Logged in successfully", {
         position: "top-right",
         autoClose: 3000,
