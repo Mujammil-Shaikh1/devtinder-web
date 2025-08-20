@@ -24,7 +24,32 @@ export interface Feed {
   profilePic: string;
 }
 
+export interface Connection {
+  _id?: string;
+  fullName: string;
+  userName: string;
+  age: number;
+  gender: string;
+  profilePic: string;
+}
+
+export interface Request {
+  _id: string;
+  fromUserId: {
+    _id?: string;
+    fullName: string;
+    userName: string;
+    age: number;
+    phone?: number;
+    gender: string;
+    profilePic: string;
+  };
+  toUserId: string;
+  status: string;
+}
 export interface Store {
   user: User;
   feed: Feed[];
+  connection: Connection[];
+  request: Request[];
 }
