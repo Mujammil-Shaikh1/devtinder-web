@@ -3,7 +3,7 @@ import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addRequests, removeRequest } from "../utils/requestSlice";
 import { useEffect } from "react";
-import type { Request, Store } from "../model/store";
+import type { RequestType, Store } from "../model/store";
 
 const Request = () => {
   const requests = useSelector((state: Store) => state.request);
@@ -30,6 +30,7 @@ const Request = () => {
   useEffect(() => {
     fetchRequests();
   }, []);
+
   return (
     <div className="w-full h-[calc(100vh-6rem)] flex flex-col items-center gap-5">
       <h1 className="my-5 text-3xl">Requests</h1>
@@ -39,7 +40,7 @@ const Request = () => {
             <li className="p-4 pb-2 text-xs opacity-80 tracking-wide">
               ✨ Congratulations on your new connections!
             </li>
-            {requests?.map((request: Request) => {
+            {requests?.map((request: RequestType) => {
               const { fullName, userName, profilePic, _id } =
                 request.fromUserId;
               return (

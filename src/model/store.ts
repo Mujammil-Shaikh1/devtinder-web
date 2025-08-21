@@ -15,7 +15,7 @@ export interface User {
 }
 
 export interface Feed {
-  _id?: string;
+  _id: string;
   fullName: string;
   userName: string;
   age: number;
@@ -33,7 +33,7 @@ export interface Connection {
   profilePic: string;
 }
 
-export interface Request {
+export interface RequestType {
   _id: string;
   fromUserId: {
     _id?: string;
@@ -51,5 +51,5 @@ export interface Store {
   user: User;
   feed: Feed[];
   connection: Connection[];
-  request: Request[];
+  request: RequestType[];
 }

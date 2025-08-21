@@ -12,6 +12,7 @@ const Profile = () => {
   const profile = useSelector((state: Store) => state?.user);
   const dispatch = useDispatch();
   const [user, setUser] = useState({
+    _id: profile?._id,
     fullName: profile?.fullName,
     userName: profile?.userName,
     profilePic: profile?.profilePic,

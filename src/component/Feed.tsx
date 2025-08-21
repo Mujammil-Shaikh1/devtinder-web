@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { getFeed } from "../utils/feedSlice";
+import { getFeed, removeFeed } from "../utils/feedSlice";
 import type { AppError } from "../model/common";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
@@ -27,17 +27,31 @@ const Feed = () => {
     }
   };
 
-  console.log("feed", feed);
+  const handleUser = async (status: string, id: string) => {
+    try {
+      await axios.post(
+        `${BASE_URL}/request/send/${status}/${id}`,
+        {},
+        { withCredentials: true }
+      );
+      dispatch(removeFeed(id));
+    } catch (err) {
+      console.error("err", err);
+    }
+  };
+
   useEffect(() => {
     fetchFeed();
   }, []);
 
   return (
     <div className="w-full h-[calc(100vh-6rem)] flex justify-center items-center">
-      {feed && (
+      {feed.length > 0 ? (
         <div className="m-5">
-          <UserCard user={feed[0]} />
+          <UserCard user={feed[0]} handleUser={handleUser} />
         </div>
+      ) : (
+        <div>No Users found</div>
       )}
     </div>
   );
