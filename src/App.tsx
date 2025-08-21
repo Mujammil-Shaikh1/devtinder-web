@@ -8,6 +8,7 @@ import Feed from "./component/Feed";
 import Profile from "./component/Profile";
 import Connection from "./component/Connection";
 import Request from "./component/Request";
+import Signup from "./component/Signup";
 function App() {
   return (
     <Provider store={store}>
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />}>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
             <Route path="/" element={<Feed />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route path="/connections" element={<Connection />}></Route>

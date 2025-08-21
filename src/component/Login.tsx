@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { BASE_URL } from "../utils/constants";
 import { toast } from "react-toastify";
 import type { AppError } from "../model/common";
@@ -84,6 +84,12 @@ const Login = () => {
               Login
             </button>
           </div>
+          <span>
+            Don't have account?{" "}
+            <Link to="/signup" className="link link-info">
+              Sign up
+            </Link>
+          </span>
         </div>
       </div>
     </div>
