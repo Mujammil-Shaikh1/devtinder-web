@@ -14,8 +14,8 @@ interface login {
 
 const Login = () => {
   const [login, setLogin] = useState<login>({
-    email: "rajatpatidar@gmail.com",
-    password: "Rajat@123456",
+    email: "",
+    password: "",
   });
 
   const dispatch = useDispatch();
