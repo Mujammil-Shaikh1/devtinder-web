@@ -9,6 +9,7 @@ import Profile from "./component/Profile";
 import Connection from "./component/Connection";
 import Request from "./component/Request";
 import Signup from "./component/Signup";
+import Chat from "./component/Chat";
 function App() {
   return (
     <Provider store={store}>
@@ -21,6 +22,7 @@ function App() {
             <Route path="/profile" element={<Profile />}></Route>
             <Route path="/connections" element={<Connection />}></Route>
             <Route path="/requests" element={<Request />}></Route>
+            <Route path="/chat/:toUserId" element={<Chat />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

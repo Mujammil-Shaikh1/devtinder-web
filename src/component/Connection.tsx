@@ -4,6 +4,7 @@ import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnection } from "../utils/connectionSlice";
 import type { Store } from "../model/store";
+import { Link } from "react-router";
 
 const Connection = () => {
   const dispatch = useDispatch();
@@ -45,6 +46,9 @@ const Connection = () => {
                       @{userName}
                     </div>
                   </div>
+                  <Link to={"/chat/" + _id}>
+                    <button className="btn btn-primary">Chat</button>
+                  </Link>
                 </li>
               );
             })}

@@ -11,7 +11,6 @@ const UserCard: React.FC<UserCardProps> = ({
   hideButton,
   handleUser,
 }) => {
-  console.log("user", user);
   const { _id, fullName, userName, profilePic, phone, age, gender } = user;
   return (
     <div className="card bg-base-300 w-72 shadow-sm">

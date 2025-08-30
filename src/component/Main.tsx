@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from "react-router";
 import Navbar from "./Navbar";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { useEffect } from "react";
@@ -36,7 +36,7 @@ const Main = () => {
     <div>
       <Navbar />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
