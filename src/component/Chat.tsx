@@ -19,7 +19,6 @@ const Chat = () => {
 
     socket.on("messageRecieved", (messagePayload: chatMessage) => {
       setChats((prev) => [...prev, messagePayload]);
-      console.log("messagePayload", messagePayload);
     });
 
     return () => {
@@ -27,7 +26,6 @@ const Chat = () => {
     };
   }, [toUserId, userId]);
 
-  console.log("chats", chats);
   const handleSend = () => {
     if (!message) {
       alert("please write something :)");
