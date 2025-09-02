@@ -49,10 +49,10 @@ export interface Store {
 }
 
 export type UserSummary = Pick<User, "fullName" | "userName" | "profilePic">;
-export interface chatMessage {
-  timeStamp: number;
+
+export interface ChatMessage extends UserSummary {
+  createdAt: number;
   toUserId: string;
-  user: UserSummary;
-  userId: string;
+  senderId: string;
   message: string;
 }
